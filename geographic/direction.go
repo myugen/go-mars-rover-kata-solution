@@ -20,7 +20,7 @@ var (
 		SOUTH: "SOUTH",
 		WEST:  "WEST",
 	}
-	directionsToCoordinates = map[Direction]Coordinates{
+	directionsToProjectedCoordinates = map[Direction]Coordinates{
 		NORTH: {
 			X: 0,
 			Y: -1,
@@ -48,6 +48,7 @@ func (d Direction) Value() int8 {
 	return int8(d)
 }
 
+// TurnTo returns the corresponding Direction due to turns
 func (d Direction) TurnTo(turns ...int8) Direction {
 	var totalTurns int8
 	for _, turn := range turns {
@@ -59,6 +60,7 @@ func (d Direction) TurnTo(turns ...int8) Direction {
 	return Direction(nextDirectionValue)
 }
 
+// MoveTo returns the projected Coordinates scaled by movements
 func (d Direction) MoveTo(movements ...int8) Coordinates {
 	var totalMovements int8
 	for _, movement := range movements {
@@ -69,10 +71,10 @@ func (d Direction) MoveTo(movements ...int8) Coordinates {
 		currentDirectionValue := d.Value()
 		backwardTurnModifier := int8(2)
 		backwardDirectionValue := d.keepValuesInRangeFor(currentDirectionValue + backwardTurnModifier)
-		coordinates := directionsToCoordinates[Direction(backwardDirectionValue)]
-		return coordinates.Scale(int(-totalMovements))
+		projectedCoordinates := directionsToProjectedCoordinates[Direction(backwardDirectionValue)]
+		return projectedCoordinates.Scale(int(-totalMovements))
 	}
-	return directionsToCoordinates[d].Scale(int(totalMovements))
+	return directionsToProjectedCoordinates[d].Scale(int(totalMovements))
 }
 
 func (d Direction) keepValuesInRangeFor(value int8) int8 {

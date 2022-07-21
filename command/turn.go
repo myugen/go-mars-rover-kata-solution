@@ -16,12 +16,8 @@ func (t Turn) String() string {
 	return turnsToNames[t]
 }
 
-func (t Turn) Value() int8 {
-	return int8(t)
-}
-
 func (t Turn) TurnModifier() int8 {
-	return t.Value()
+	return int8(t)
 }
 
 func (t Turn) MoveModifier() int8 {

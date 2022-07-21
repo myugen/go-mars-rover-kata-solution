@@ -7,14 +7,15 @@ type Plane struct {
 	Height int
 }
 
-func (d Plane) PositionBaseOn(currentPosition, movement Coordinates) Coordinates {
-	coordinates := currentPosition.Add(movement)
+// PositionBaseOn returns correct Coordinates having in count the spherical plane
+func (p Plane) PositionBaseOn(currentPosition, projectedCoordinates Coordinates) Coordinates {
+	coordinates := currentPosition.Add(projectedCoordinates)
 	return Coordinates{
-		X: d.keepValueInRangeFor(coordinates.X, d.Width),
-		Y: d.keepValueInRangeFor(coordinates.Y, d.Height),
+		X: p.keepValueInRangeFor(coordinates.X, p.Width),
+		Y: p.keepValueInRangeFor(coordinates.Y, p.Height),
 	}
 }
 
-func (d Plane) keepValueInRangeFor(value, max int) int {
+func (Plane) keepValueInRangeFor(value, max int) int {
 	return utils.KeepValueInRangeFor(value, 0, max)
 }

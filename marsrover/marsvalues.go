@@ -10,6 +10,7 @@ type MarsRover struct {
 	status Status
 }
 
+// Receive update the Status for every sent Signal
 func (m *MarsRover) Receive(signals ...command.Signal) {
 	for _, signal := range signals {
 		m.status.Facing = m.status.Facing.TurnTo(signal.TurnModifier())
@@ -19,10 +20,12 @@ func (m *MarsRover) Receive(signals ...command.Signal) {
 
 }
 
+// Status returns the current status
 func (m MarsRover) Status() Status {
 	return m.status
 }
 
+// DeployInto instances a new Mars Rover in a starting point (geographic.Coordinates) of a new planet (geographic.Plane) facing a direction (geographic.Direction)
 func DeployInto(planet geographic.Plane, startingPoint geographic.Coordinates, facingTo geographic.Direction) *MarsRover {
 	return &MarsRover{plane: planet, status: Status{Position: startingPoint, Facing: facingTo}}
 }
