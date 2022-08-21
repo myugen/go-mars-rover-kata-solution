@@ -1,6 +1,6 @@
 package geographic
 
-import "github.com/myugen/go-mars-rover-kata/utils"
+import "github.com/myugen/go-mars-rover-kata-solution/utils"
 
 type Plane struct {
 	Width  int

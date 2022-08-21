@@ -1,8 +1,8 @@
 package marsrover
 
 import (
-	"github.com/myugen/go-mars-rover-kata/command"
-	"github.com/myugen/go-mars-rover-kata/geographic"
+	"github.com/myugen/go-mars-rover-kata-solution/command"
+	"github.com/myugen/go-mars-rover-kata-solution/geographic"
 )
 
 type MarsRover struct {

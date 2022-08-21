@@ -1,7 +1,7 @@
 package geographic
 
 import (
-	"github.com/myugen/go-mars-rover-kata/utils"
+	"github.com/myugen/go-mars-rover-kata-solution/utils"
 )
 
 type Direction int8

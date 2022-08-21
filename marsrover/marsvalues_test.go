@@ -3,9 +3,9 @@ package marsrover_test
 import (
 	"testing"
 
-	"github.com/myugen/go-mars-rover-kata/command"
-	"github.com/myugen/go-mars-rover-kata/geographic"
-	"github.com/myugen/go-mars-rover-kata/marsrover"
+	"github.com/myugen/go-mars-rover-kata-solution/command"
+	"github.com/myugen/go-mars-rover-kata-solution/geographic"
+	"github.com/myugen/go-mars-rover-kata-solution/marsrover"
 	"github.com/stretchr/testify/assert"
 )
 

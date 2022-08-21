@@ -1,4 +1,4 @@
-module github.com/myugen/go-mars-rover-kata
+module github.com/myugen/go-mars-rover-kata-solution
 
 go 1.18
 
